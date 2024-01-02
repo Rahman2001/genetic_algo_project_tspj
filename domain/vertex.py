@@ -4,7 +4,7 @@ from job import Job
 class Vertex:
     number = 0
     neighbors = []  # [Vertex]
-    distances = []  # [distance for each vertex] in neighbors[i]
+    distances = []  # for each distance[i] ->  in neighbors[i]
     job = Job
 
     def __init__(self, number):
@@ -13,4 +13,7 @@ class Vertex:
     def add_neighbor_distance(self, vertex, distance):
         self.neighbors.append(vertex)
         self.distances.append(distance)
+
+    def set_job(self, job):
+        self.job = job
 
