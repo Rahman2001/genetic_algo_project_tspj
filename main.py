@@ -2,6 +2,7 @@ from random import randint
 
 from domain.vertex import Vertex
 from initial_population.route_construction.nearest_neighbor import nearest_neighbor
+from initial_population.route_construction.random_route import random_route
 
 
 def main():
@@ -17,8 +18,10 @@ def main():
             if i != j:
                 v_list[i].add_neighbor_distance(v_list[j], randint(1, 40))
 
-    nn = nearest_neighbor(v_list)
-    print(nn)
+    # nn = nearest_neighbor(v_list)
+    # print(nn)
+    rr = random_route(v_list)
+    print(rr)
 
 
 main()
