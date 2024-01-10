@@ -22,7 +22,7 @@ def main():
             if i != j:
                 v_list[i].add_neighbor_distance(v_list[j], randint(1, 40))
 
-    # nn = nearest_neighbor(v_list)
+    nn = nearest_neighbor(v_list)
     # print([vertex.number for vertex in nn])
     # rr = random_route(v_list)
     # print(rr)
@@ -40,6 +40,9 @@ def main():
     #
     # nnja_job = nnja(nn, j_list)
     # print([job.number for job in nnja_job])
+    #
+    # for vertex in nn:
+    #     print("Vertex number: " + str(vertex.number) + " and job number: " + str(vertex.job.number))
 
 
 main()

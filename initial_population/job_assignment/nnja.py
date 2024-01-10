@@ -15,7 +15,7 @@ def nnja(route_path, jobs):
                     jobs[j] = temp
 
                     job = jobs[i]
-
+            route_path[i+1].set_job(job)
             print("The job number " + str(job.number) + " has the highest completion time " + str(job.time_to_complete))
 
         return jobs
