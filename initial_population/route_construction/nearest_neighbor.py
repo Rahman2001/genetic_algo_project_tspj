@@ -12,7 +12,7 @@ def nearest_neighbor(vertices):
     # random starting point/vertex
     start_vertex = vertices[p]
     # route_path path initialization
-    route_path = [start_vertex.number]
+    route_path = [start_vertex]
     neighbor_candidate_index = 0
 
     while route_path.__len__() != ver_size:  # the last index must be the depot
@@ -39,7 +39,7 @@ def nearest_neighbor(vertices):
         else:
             record.__setitem__(start_vertex.number, next1_vertex.number)
             start_vertex = next1_vertex
-            route_path.append(start_vertex.number)
+            route_path.append(start_vertex)
 
         # print("Keys in record are: " + str([k for k in record]))
         # print("Values in record are: " + str([v for v in record.values()]) + "\n")

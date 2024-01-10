@@ -22,24 +22,24 @@ def main():
             if i != j:
                 v_list[i].add_neighbor_distance(v_list[j], randint(1, 40))
 
-    nn = nearest_neighbor(v_list)
-    print(nn)
+    # nn = nearest_neighbor(v_list)
+    # print([vertex.number for vertex in nn])
     # rr = random_route(v_list)
     # print(rr)
 
-    j1 = Job(2, 23)
-    j2 = Job(4, 11)
-    j3 = Job(9, 44)
-    j4 = Job(10, 12)
-    j5 = Job(22, 6)
-
-    j_list = [j1, j2, j3, j4, j5]
+    # j1 = Job(2, 23)
+    # j2 = Job(4, 11)
+    # j3 = Job(9, 44)
+    # j4 = Job(10, 12)
+    # j5 = Job(22, 6)
+    #
+    # j_list = [j1, j2, j3, j4, j5]
 
     # rand_job = rap(j_list)
     # print(rand_job)
-
-    nnja_job = nnja(nn, j_list)
-    print([job.number for job in nnja_job])
+    #
+    # nnja_job = nnja(nn, j_list)
+    # print([job.number for job in nnja_job])
 
 
 main()

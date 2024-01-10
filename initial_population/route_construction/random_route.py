@@ -9,7 +9,7 @@ def random_route(vertices):
         rand_index = randint(0, len(vertices) - 1)
         next_route = vertices[rand_index]
         if not next_route.is_visited:
-            rand_route.append(vertices[rand_index].number)
+            rand_route.append(vertices[rand_index])
             next_route.set_visited(True)
 
     rand_route.append(rand_route[0])
