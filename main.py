@@ -20,7 +20,7 @@ def main():
     for i in range(v_list.__len__()):
         for j in range(v_list.__len__()):
             if i != j:
-                v_list[i].add_neighbor_distance(v_list[j], randint(1, 40))
+                v_list[i].add_neighbor_and_distance(v_list[j], randint(1, 40))
 
     nn = nearest_neighbor(v_list)
     # print([vertex.number for vertex in nn])
