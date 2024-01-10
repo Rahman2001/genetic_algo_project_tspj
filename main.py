@@ -6,6 +6,7 @@ from initial_population.route_construction.nearest_neighbor import nearest_neigh
 from initial_population.route_construction.random_route import random_route
 from initial_population.job_assignment.rap import rap
 from initial_population.job_assignment.nnja import nnja
+from evaluation_process.fitness_function import evaluate_individual
 
 
 def main():
@@ -26,23 +27,38 @@ def main():
     # print([vertex.number for vertex in nn])
     # rr = random_route(v_list)
     # print(rr)
+    for i in range(len(nn)):
+        if i != len(nn) - 1:
+            start_vertex = nn[i]
+            next_vertex = nn[i+1]
+            print("Vertex number: " + str(start_vertex.number) + " has distance of: " +
+                  str(start_vertex.neighbor_dict.get(next_vertex.number)) + " to vertex number: " + str(next_vertex.number))
 
-    # j1 = Job(2, 23)
-    # j2 = Job(4, 11)
-    # j3 = Job(9, 44)
-    # j4 = Job(10, 12)
-    # j5 = Job(22, 6)
-    #
-    # j_list = [j1, j2, j3, j4, j5]
+    print("\nFor third_elem result: ")
+    print("Vertex number: " + str(nn[len(nn) - 2].number) + " has distance of: " +
+          str(nn[len(nn) - 2].neighbor_dict.get(nn[0].number)) + " to vertex number: " + str(nn[0].number))
+    j1 = Job(2, 23)
+    j2 = Job(4, 11)
+    j3 = Job(9, 44)
+    j4 = Job(10, 12)
+    j5 = Job(22, 6)
+
+    j_list = [j1, j2, j3, j4, j5]
 
     # rand_job = rap(j_list)
     # print(rand_job)
     #
-    # nnja_job = nnja(nn, j_list)
-    # print([job.number for job in nnja_job])
-    #
-    # for vertex in nn:
-    #     print("Vertex number: " + str(vertex.number) + " and job number: " + str(vertex.job.number))
+    nnja_job = nnja(nn, j_list)
+    for job in nnja_job:
+        print("Job number: " + str(job.number) + " and job completion time: " + str(job.time_to_complete))
+
+    for vertex in nn:
+        print("Vertex number: " + str(vertex.number) + " and job number: " + str(vertex.job.number))
+
+    individual = [nn, nnja_job]
+
+    obj_fun = evaluate_individual(individual)
+    print(obj_fun)
 
 
 main()
