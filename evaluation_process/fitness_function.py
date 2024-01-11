@@ -38,11 +38,11 @@ def evaluate_individual(individual):
     jobs = individual[1]
 
     first_elem = jobs[0].time_to_complete + route[0].neighbor_dict.get(route[1].number)
-    print("The first_elem result: " + str(first_elem))
+    # print("The first_elem result: " + str(first_elem))
     second_elem = max(second_element(route, jobs))
-    print("The second_elem result: " + str(second_elem))
+    # print("The second_elem result: " + str(second_elem))
     third_elem = third_element(route)
-    print("The third_elem result: " + str(third_elem))
+    # print("The third_elem result: " + str(third_elem))
 
     return max([first_elem, second_elem, third_elem])
 
