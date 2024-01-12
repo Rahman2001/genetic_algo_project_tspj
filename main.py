@@ -1,6 +1,8 @@
 from random import randint
 
 import numpy
+
+import crossover.ox
 from domain.job import Job
 from domain.vertex import Vertex
 from initial_population.route_construction.nearest_neighbor import nearest_neighbor
@@ -9,6 +11,7 @@ from initial_population.job_assignment.rap import rap
 from initial_population.job_assignment.nnja import nnja
 from evaluation_process.fitness_function import evaluate_individual
 from selection.tournament_selection import tournament_selection
+from crossover.ox import order_crossover
 
 
 def main():
@@ -36,7 +39,7 @@ def main():
     # nn = nearest_neighbor(v_list)
     # print([vertex.number for vertex in nn])
     # rr = random_route(v_list)
-    # print(rr)
+    # print([vertex.number for vertex in rr])
     # for i in range(len(nn)):
     #     if i != len(nn) - 1:
     #         start_vertex = nn[i]
@@ -49,7 +52,7 @@ def main():
     #       str(nn[len(nn) - 2].neighbor_dict.get(nn[0].number)) + " to vertex number: " + str(nn[0].number))
 
     # rand_job = rap(j_list)
-    # print(rand_job)
+    # print([job.number for job in rand_job])
     #
     # nnja_job = nnja(nn, j_list)
     # for job in nnja_job:
@@ -63,7 +66,7 @@ def main():
     # obj_fun = evaluate_individual(individual)
     # print(obj_fun)
 
-    population_size = 5
+    population_size = 2
     population = []
     for i in range(population_size):
         rr = random_route(v_list)
@@ -71,10 +74,15 @@ def main():
         individual = [rr, rapp]
         population.append(individual)
 
-        print("The depot also has job: " + str(rr[0].job.number) + " (job number)")
-    fitness_func = evaluate_individual
-    tour_sel = tournament_selection(4, population, fitness_func)
-    print(tour_sel)
+    #     print("The depot also has job: " + str(rr[0].job.number) + " (job number)")
+    # fitness_func = evaluate_individual
+    # tour_sel = tournament_selection(4, population, fitness_func)
+    # print(tour_sel)
+
+    [child1, child2] = order_crossover(population[0], population[1])
+    #
+    print([vertex.number for vertex in child1[0]])
+    print([vertex.number for vertex in child2[0]])
 
 
 main()

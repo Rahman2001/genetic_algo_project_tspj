@@ -6,7 +6,7 @@ from random import randint
 def random_route(vertices):
     rand_route = []
     rand_indices = random.sample(range(0, len(vertices) - 1), len(vertices) - 1)
-    print(rand_indices)
+    # print(rand_indices)
     for index in rand_indices:
         rand_route.append(vertices[index])
 
