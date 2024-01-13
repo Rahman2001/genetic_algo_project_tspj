@@ -10,6 +10,7 @@ from initial_population.route_construction.random_route import random_route
 from initial_population.job_assignment.rap import rap
 from initial_population.job_assignment.nnja import nnja
 from evaluation_process.fitness_function import evaluate_individual
+from mutation.diversification.rm import reverse_mutation
 from selection.tournament_selection import tournament_selection
 from crossover.ox import order_crossover
 from crossover.pmx import partially_mapped_crossover
@@ -83,10 +84,18 @@ def main():
     # [child1, child2] = order_crossover(population[0], population[1])
     # print([vertex.number for vertex in child1[0]])
     # print([vertex.number for vertex in child2[0]])
+    #
+    # [child1, child2] = partially_mapped_crossover(population[0], population[1])
+    # print([vertex.number for vertex in child1[0]])
+    # print([vertex.number for vertex in child2[0]])
 
-    [child1, child2] = partially_mapped_crossover(population[0], population[1])
-    print([vertex.number for vertex in child1[0]])
-    print([vertex.number for vertex in child2[0]])
+    individual = population[0]
+    print([i.number for i in individual[0]])
+    print([i.number for i in individual[1]])
+    individual = reverse_mutation(individual)
+    print("Reversed mutation applied: ")
+    print([i.number for i in individual[0]])
+    print([i.number for i in individual[1]])
 
 
 main()
