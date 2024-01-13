@@ -12,6 +12,7 @@ from initial_population.job_assignment.nnja import nnja
 from evaluation_process.fitness_function import evaluate_individual
 from selection.tournament_selection import tournament_selection
 from crossover.ox import order_crossover
+from crossover.pmx import partially_mapped_crossover
 
 
 def main():
@@ -79,8 +80,11 @@ def main():
     # tour_sel = tournament_selection(4, population, fitness_func)
     # print(tour_sel)
 
-    [child1, child2] = order_crossover(population[0], population[1])
-    #
+    # [child1, child2] = order_crossover(population[0], population[1])
+    # print([vertex.number for vertex in child1[0]])
+    # print([vertex.number for vertex in child2[0]])
+
+    [child1, child2] = partially_mapped_crossover(population[0], population[1])
     print([vertex.number for vertex in child1[0]])
     print([vertex.number for vertex in child2[0]])
 
