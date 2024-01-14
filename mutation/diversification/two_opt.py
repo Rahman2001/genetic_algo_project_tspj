@@ -1,3 +1,3 @@
 
-def two_opt():
+def two_opt(population):
     return 0

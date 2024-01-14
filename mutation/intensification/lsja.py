@@ -1,3 +1,3 @@
 
-def lsja():
+def lsja(population):
     return 0
